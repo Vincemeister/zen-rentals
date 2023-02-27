@@ -1,2 +1,5 @@
 <h1>ZenRentals#home</h1>
+<% if user_signed_in? %>
+  <h2>Hi <%= current_user.email %></h2>
+<% end %>
 <p>Find me in app/views/pages/home.html.erb</p>
