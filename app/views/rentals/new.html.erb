@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>List your zen equipment</h1>
+  <%= simple_form_for @rental do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :price_per_day %>
+    <%= f.input :address %>
+    <%= f.button :submit, "List your zen equipment" %>
+  <% end %>
+
+</div>
