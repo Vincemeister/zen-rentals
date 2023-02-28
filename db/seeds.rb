@@ -26,11 +26,11 @@ puts ' 10 users created!'
 
 
 puts "Creating rentals..."
-10.times do
+5.times do
   rental = Rental.new(
     title:    Faker::Appliance.equipment,
     description:     Faker::Lorem.paragraph,
-    address:   Faker::Address.full_address,
+    address:   Faker::Address.city,
     price_per_day:  rand(1..10000),
     rating: rand(1..5),
     user: User.all.sample
