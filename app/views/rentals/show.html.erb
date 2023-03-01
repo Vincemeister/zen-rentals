@@ -2,16 +2,22 @@
 <div class="container">
   <div class="row">
       <div class="col-md-6">
-        <%= cl_image_tag @rental.photos.first.key, crop: :thumb, width: 600, height: 400, class: "w-100 h-100" %>
+        <% if @rental.photos.attached? %>
+          <%= cl_image_tag @rental.photos.first.key, crop: :thumb, width: 600, height: 400, class: "w-100 h-100" %>
+        <% else %>
+          <%= image_tag "https://res.cloudinary.com/dncij7vr6/image/upload/v1677666474/Rectangle_7_ivn4vk.jpg", class: "card-img-top" %>
+        <% end %>
       </div>
       <div class="col-md-6">
         <div class="row">
-          <% @rental.photos[1..4].each do |photo| %>
-            <div class="col-sm-6">
-              <div class="my-2 secondary-images" style="position: relative; overflow: hidden;">
-                <%= cl_image_tag photo.key, crop: :thumb, style: "object-fit: cover; object-position: center;" %>
+          <% if @rental.photos.attached? %>
+            <% @rental.photos[1..4].each do |photo| %>
+              <div class="col-sm-6">
+                <div class="my-2 secondary-images" style="position: relative; overflow: hidden;">
+                  <%= cl_image_tag photo.key, crop: :thumb, style: "object-fit: cover; object-position: center;" %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>

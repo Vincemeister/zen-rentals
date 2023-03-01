@@ -3,7 +3,11 @@
     <% @rentals.each do |rental| %>
     <%= link_to rental_path(rental) do %>
       <div class="main-card text-decoration-none">
+      <% if rental.photos.attached? %>
         <%= cl_image_tag rental.photos.first.key, width: 300, height: 200, crop: :fill %>
+        <% else %>
+        <%= image_tag "https://res.cloudinary.com/dncij7vr6/image/upload/v1677666474/Rectangle_7_ivn4vk.jpg", class: "card-img-top" %>
+      <% end %>
         <div class="content-container p-3">
           <h3>
             <%= rental.title %>
