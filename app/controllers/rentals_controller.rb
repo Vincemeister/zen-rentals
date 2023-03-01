@@ -7,6 +7,7 @@ class RentalsController < ApplicationController
   end
 
   def show
+    @booking = OpenStruct.new(name: nil, email: nil, phone: nil, start_date: nil, end_date: nil)
   end
 
   def new

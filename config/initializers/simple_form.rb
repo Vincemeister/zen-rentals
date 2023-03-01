@@ -173,4 +173,9 @@ SimpleForm.setup do |config|
   # Defines validation classes to the input_field. By default it's nil.
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
+
+  # Added this after instructions from chatgtp for the datepicker option in the booking form
+  config.input_mappings = {
+    /date_picker/ => :datepicker,
+  }
 end

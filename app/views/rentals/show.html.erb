@@ -1,3 +1,51 @@
-<%= @rental.title %>
-<%= cl_image_tag("FH63rE5WKfvcepMz15SKChGS",
-      width: 400, height: 300, crop: :fill) %>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+        <%= cl_image_tag @rental.photos.first.key, crop: :thumb, width: 600, height: 400, class: "w-100 h-100" %>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <% @rental.photos[1..4].each do |photo| %>
+            <div class="col-sm-6">
+              <div class="my-2 secondary-images" style="position: relative; overflow: hidden;">
+                <%= cl_image_tag photo.key, crop: :thumb, style: "object-fit: cover; object-position: center;" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="row">
+    <div class="col-8">
+      <div class="rental-title border-bottom my-4">
+        <h1><%= @rental.title %></h1>
+      </div>
+      <div class="rental-content border-bottom my-4">
+        <p> <%= @rental.description %></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="border p-4">
+        <div class="row justify-content-between">
+          <div class="col-6">
+            <h4> $ <%= @rental.price_per_day %> day</h4>
+          </div>
+          <div class="col-6 text-end">
+            <h4> <%= @rental.rating %> <i class="fa-solid fa-star"></i> </h4>
+          </div>
+        </div>
+        <%= simple_form_for :booking do |f| %>
+          <%= f.label :start_date, "Start Date" %>
+          <%= f.date_field :start_date, class: 'form-control datepicker', id: 'booking_start_date' %>
+          <%= f.label :end_date, "End Date" %>
+          <%= f.date_field :end_date, class: 'form-control datepicker', id: 'booking_end_date' %>
+          <%= f.button :submit, 'Book Now', class: 'btn btn-primary my-3 w-100' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

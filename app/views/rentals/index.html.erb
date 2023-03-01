@@ -1,9 +1,10 @@
 <div class="container">
   <div class="cards-container">
     <% @rentals.each do |rental| %>
-      <div class="main-card">
+    <%= link_to rental_path(rental) do %>
+      <div class="main-card text-decoration-none">
         <%= cl_image_tag rental.photos.first.key, width: 300, height: 200, crop: :fill %>
-        <div class="content-container">
+        <div class="content-container p-3">
           <h3>
             <%= rental.title %>
           </h3>
@@ -11,19 +12,20 @@
             <%= rental.description %>
           </p>
           <div class="detail-box">
-            <div>
+            <div class="text-decoration-none">
               $<%= rental.price_per_day %>
             </div>
-            <div>
+            <div class="text-decoration-none">
               <%= rental.address %>
             </div>
-            <div>
+            <div class="text-decoration-none">
               <i class="fa-solid fa-star"></i>
               <%= rental.rating %>
             </div>
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
