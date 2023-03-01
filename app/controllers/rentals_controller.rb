@@ -7,7 +7,7 @@ class RentalsController < ApplicationController
   end
 
   def show
-    @booking = OpenStruct.new(name: nil, email: nil, phone: nil, start_date: nil, end_date: nil)
+    @booking = Booking.new
   end
 
   def new
@@ -19,9 +19,7 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     if @rental.save
       flash[:success] = "Rental was successfully created."
-      puts "lets see"
       redirect_to rental_path(@rental)
-      puts "nice"
     else
       flash[:error] = "There was an error saving the rental."
       render :new
