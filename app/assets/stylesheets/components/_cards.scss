@@ -29,8 +29,12 @@
     p {
       text-align: justify;
       text-decoration: none;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
-
+    
     .detail-box {
       justify-content: space-between;
       align-items: flex-end;
