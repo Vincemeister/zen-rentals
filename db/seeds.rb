@@ -112,22 +112,22 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677654207/r
 
 
 file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/rentals/download_tmo83r.jpg")
-  rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
-  rental.save!
+cryochamber.photos.attach(io: file, filename: "#{cryochamber.title}.jpg", content_type: "image/jpg")
+cryochamber.save!
 
 
   file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657125/rentals/cryotherapy-2-1024x1024_yv59gi.jpg")
-  rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
-  rental.save!
+  cryochamber.photos.attach(io: file, filename: "#{cryochamber.title}.jpg", content_type: "image/jpg")
+  cryochamber.save!
 
 
   file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657123/rentals/download_2_bnenrq.jpg")
-  rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
-  rental.save!
+  cryochamber.photos.attach(io: file, filename: "#{cryochamber.title}.jpg", content_type: "image/jpg")
+  cryochamber.save!
 
   file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657121/rentals/download_1_b1o0fe.jpg")
-  rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
-  rental.save!
+  cryochamber.photos.attach(io: file, filename: "#{cryochamber.title}.jpg", content_type: "image/jpg")
+  cryochamber.save!
 
 
 
