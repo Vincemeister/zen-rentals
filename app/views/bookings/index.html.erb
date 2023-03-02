@@ -1,63 +1,77 @@
 <div class="container flex">
   <h1>My Bookings</h1>
+  <p><% @bookings.user %></p>
+  <p><%  @owner_bookings.user %></p>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="bookings">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+    <button class="nav-link active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="true">Bookings</button>
   </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="requests" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+  <li class="nav-item" role="requests">
+    <button class="nav-link" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests" type="button" role="tab" aria-controls="requests" aria-selected="false">Requests</button>
   </li>
 </ul>
 
 <!-- Tab panes -->
 
-
-
-
-
   </div>
-  <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="bookings">
-    <div class="container justify-content-center">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <% @bookings.each do |booking| %>
-          <div class="col">
-            <div class="card-product mb-2">
-
-
-              <% if booking.rental.photos.attached? %>
-                <%= cl_image_tag booking.rental.photos.first.key, width: 300, height: 200, crop: :fill %>
-                <% else %>
-                <%= image_tag "https://res.cloudinary.com/dncij7vr6/image/upload/v1677666474/Rectangle_7_ivn4vk.jpg", class: "card-img-top" %>
-              <% end %>
-              <div class="card-product-infos">
-                <h2><%= booking.rental.title %></h2>
-                <p>
-                  From: <%= booking.start_date %>
-                  <br>
-                  To: <%= booking.start_date %>
-                </p>
-                <p>
-                  Total Price: <strong>$</strong><%= booking.total_price %>
-                </p>
-              </div>
-            </div>
+  <div class="tab-panel" id="bookings" role="tabpanel" aria-labelledby="bookings">
+    <div class="container justify-content-center mt-4">
+      <% @bookings.each do |booking| %>
+        <div class="card-product mb-2 w-50">
+          <% if booking.rental.photos.attached? %>
+            <%= cl_image_tag booking.rental.photos.first.key, width: 300, height: 200, crop: :fill %>
+            <% else %>
+            <%= image_tag "https://res.cloudinary.com/dncij7vr6/image/upload/v1677666474/Rectangle_7_ivn4vk.jpg", class: "card-img-top" %>
+          <% end %>
+          <div class="card-product-infos flex-grow-1">
+            <h2><%= booking.rental.title %></h2>
+            <p>
+              From: <%= booking.start_date %>
+              <br>
+              To: <%= booking.start_date %>
+            </p>
+            <p>
+              Total Price: <strong>$</strong><%= booking.total_price %>
+            </p>
           </div>
-        <% end %>
-      </div>
+          <div class="d-flex flex-column p-4">
+            <%= link_to "Change", "#" %>
+            <%= link_to "Cancel", "#" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-
-
-
-
   </div>
 
 
 
-
-  </div>
-  <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="requests">
-
+  <div class="tab-panel" id="requests" role="tabpanel" aria-labelledby="requests">
+    <div class="container justify-content-center mt-4">
+      <% @owner_bookings.each do |booking| %>
+        <div class="card-product mb-2 w-50">
+          <% if booking.rental.photos.attached? %>
+            <%= cl_image_tag booking.rental.photos.first.key, width: 300, height: 200, crop: :fill %>
+            <% else %>
+            <%= image_tag "https://res.cloudinary.com/dncij7vr6/image/upload/v1677666474/Rectangle_7_ivn4vk.jpg", class: "card-img-top" %>
+          <% end %>
+          <div class="card-product-infos flex-grow-1">
+            <h2><%= booking.rental.title %></h2>
+            <p>
+              From: <%= booking.start_date %>
+              <br>
+              To: <%= booking.start_date %>
+            </p>
+            <p>
+              Total Price: <strong>$</strong><%= booking.total_price %>
+            </p>
+          </div>
+          <div class="d-flex flex-column p-4">
+            <%= link_to "Change", "#" %>
+            <%= link_to "Cancel", "#" %>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
 

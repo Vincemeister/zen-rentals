@@ -63,7 +63,8 @@ built-in speaker or use optional headphones
   address: "Canggu",
   price_per_day:  30,
   rating: 4.7,
-  user: User.all.sample
+  user: User.all.sample,
+  headline: "Luxurious comfort, innovative technology and timeless design."
 )
 
 file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677653400/rentals/energypod_65247_1_jpxj1i.jpg")
@@ -100,7 +101,8 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677654207/r
     address: "Canggu",
     price_per_day:  300,
     rating: 5,
-    user: vincent
+    user: vincent,
+    headline: "Capability to (-230F). Full Submersion Cryotherapy creates a thermal shock without causing a drop in body temperature."
   )
 
 
@@ -139,7 +141,8 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     address: "New York",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample
+    user: User.all.sample,
+    headline: "Fully-fledged ubran garden with zen pebbles."
   )
 
 
@@ -158,7 +161,8 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: vincent
+    user: vincent,
+    headline: "Nicaraguan Moss oxygenifying vertical garde"
   )
 
 
@@ -179,7 +183,8 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample
+    user: User.all.sample,
+    headline: "Premium rosewood sauna with Diffuse 3.0 techbirch branches added."
   )
 
 
@@ -201,7 +206,8 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     address: "New York",
     price_per_day:  30,
     rating: 5,
-    user: User.all.sample
+    user: User.all.sample,
+    headline: "Multi-person steambath with 3D sound system."
   )
 
 
@@ -223,7 +229,9 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample
+    user: User.all.sample,
+    headline: "Ultraegonomic insulated office pod for all weathers"
+
   )
 
 
@@ -241,12 +249,12 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
 
   rental = Rental.new(
     title: "Luna Blu Office Waterfall",
-    description: "It will help you to relax and improve your productivity.
-  ",
+    description: "It will help you to relax and improve your productivity.",
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample
+    user: User.all.sample,
+    headline: "BluTech waterfall with SOOTH Light tech."
   )
 
 
@@ -262,13 +270,14 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
 
 
   rental = Rental.new(
-    title: "Big Boss Wall",
-      description: "Be a boss. Have a vertical garden. Mr. Executive. Yeah.
-  ",
-    address: "New York",
+    title: "The UBUDian Jungle Wall",
+    description: "Be a boss. Have a vertical garden. Mr. Executive. Yeah.",
+    address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample
+    user: User.all.sample,
+    headline: "30 tropical plants with aroma therapy"
+
   )
 
 

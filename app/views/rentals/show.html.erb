@@ -1,5 +1,12 @@
 
 <div class="container">
+  <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><strong>Yay!</strong> 🎉 you successfully listed your item!</span>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+
   <div class="row">
       <div class="col-md-6">
         <% if @rental.photos.attached? %>

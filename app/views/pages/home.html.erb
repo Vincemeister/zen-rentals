@@ -1,14 +1,14 @@
 <div class="banner my-7" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path("AdobeStock_208033690_atpb2a") %>);">
   <div class="container align-items-center">
-    <h1>Pause</h1>
-    <h1>Relax</h1>
-    <h1>Perform</h1>
+    <h1>Pause.</h1>
+    <h1>Relax.</h1>
+    <h1>Perform.</h1>
     <p>Rent rejuvinating zen equipment for your office or event.</p>
     <%= link_to "Rent Zen", rentals_path, class: "btn btn-primary btn-large font-light  " %>
     <%= link_to "Story", about_path, class: "btn btn-large btn-custom-transparent font-light" %>
   </div>
 </div>
-<h3 class="mt-6 mb-4" style="text-align: center; margin-top: 3rem;">Explore Zen Rentals</h3>
+<h3 class="mt-6 mb-4" style="text-align: center; margin-top: 3rem;">Browse zen categories</h3>
 
 <div class="container">
   <div class="row">
@@ -35,12 +35,12 @@
       </div>
     </div>
     <div class="col">
-      <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("experiences_gm9ez3") %>);">
+      <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("booth_w8qzxc") %>);">
         Tiny Cabins & Outdoor Offices
       </div>
     </div>
     <div class="col">
-      <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("booth_w8qzxc") %>);">
+      <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("experiences_gm9ez3") %>);">
         Custom Multisensory Experiences
       </div>
     </div>
@@ -48,45 +48,49 @@
 </div>
 
 
-<h3 class="my-4" style="text-align: center;">Unique Experiences</h1>
+<h3 class="my-4" style="text-align: center;">Unique experiences</h1>
 <p style="text-align: center">Surprise employees or conference goers with mesmerizing, unique zen experiences enabled through state-of-the art technology</p>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=AKACNlfywr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-<div class="video-container">
-  <video autoplay muted loop>
-    <source src="https://www.youtube.com/watch?v=AKACNlfywr0" type="video/mp4" />
-  </video>
-  <div class="caption">
-    <h2>Your caption here</h2>
+<div class="container my-4 p-4">
+  <div class="banner banner-unique-experiences my-7 d-flex align-items-center justify-content-center mx-auto" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path("teamlab_jzqhuw") %>);">
+    <%= link_to "Enter a new vision of zen", rentals_path, class: "btn btn-large btn-custom-transparent-secondary" %>
   </div>
 </div>
 
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AKACNlfywr0?controls=0&amp;clip=UgkxglggITQssNNayg2hbOELik9p7QiPwuT6&amp;clipt=EJHFDhipug8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-<!--
+<h3 class="mt-6" style="text-align: center;">Discover zen equipment in <span style="color: #B91372;">Canggu</span></h1>
 <div class="container">
-  <div class="banner banner-unique-experiences">
-    <video autoplay muted loop>
-      <source src="https://www.youtube.com/clip/UgkxglggITQssNNayg2hbOELik9p7QiPwuT6" type="video/mp4">
-    </video>
+  <div class="cards-container">
+    <% @rentals.each do |rental| %>
+    <%= link_to rental_path(rental) do %>
+      <div class="main-card text-decoration-none">
+      <% if rental.photos.attached? %>
+        <%= cl_image_tag rental.photos.first.key, width: 300, height: 200, crop: :fill %>
+        <% else %>
+        <%= image_tag "https://res.cloudinary.com/dncij7vr6/image/upload/v1677666474/Rectangle_7_ivn4vk.jpg", class: "card-img-top" %>
+      <% end %>
+        <div class="content-container p-3">
+          <h3>
+            <%= rental.title %>
+          </h3>
+          <p>
+            <%= rental.headline %>
+          </p>
+          <div class="detail-box">
+            <div class="text-decoration-none">
+              <strong>$</strong></strong><%= rental.price_per_day %>
+            </div>
+            <div class="text-decoration-none">
+              <%= rental.address %>
+            </div>
+            <div class="text-decoration-none">
+              <i class="fa-solid fa-star"></i>
+              <%= rental.rating %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
-
-
-
-
-
-
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
--->
