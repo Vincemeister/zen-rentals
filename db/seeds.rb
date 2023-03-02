@@ -10,6 +10,7 @@ require 'faker'
 puts "Cleaning database..."
 Rental.destroy_all
 User.destroy_all
+Booking.destroy_all
 puts "Creating users..."
 
 10.times do
@@ -23,6 +24,13 @@ puts "Creating users..."
   puts "User #{user.first_name} created!"
 end
 puts ' 10 users created!'
+vincent = User.new(
+  first_name: "Vincent",
+  last_name: "Bouvier",
+  email: "vr@gmail.com",
+  password: "password"
+)
+vincent.save!
 
 
 puts "Creating rentals..."
@@ -52,7 +60,7 @@ Built-In Speaker
 Specially composed rhythms play to facilitate relaxation and eliminate surrounding distractions. Listen through the
 built-in speaker or use optional headphones
 ",
-  address: "Brooklyn",
+  address: "Canggu",
   price_per_day:  30,
   rating: 4.7,
   user: User.all.sample
@@ -83,22 +91,22 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677654207/r
 
 ############################## SECOND ##########################################
 
-  rental = Rental.new(
+  cryochamber = Rental.new(
     title: "SuperFroid Cryo Master 3.0",
     description: "By exposing the whole body to extreme temperature (-230F) for a short time (maximum 3 min), Full Submersion Cryotherapy creates a thermal shock without causing a drop in body temperature. This thermal shock has several effects on the body: analgesic (reduction of pain), anti-inflammatory and stimulant.
 
     Full Body Submersion (including the head) is the key for optimal Cryotherapy experience. Our new generation Cryochamber does not use harmful Nitrogen vapors, only fresh natural air Improve post-workout recovery and tissue circulation, increase metabolic rate and level of antioxidants. Release endorphins and dopamine and start feeling good, strengthen the immune system, bring down cortisol and balance your nervous system, burn down stubborn fat and increase collagen production
   ",
-    address: "Brooklyn",
+    address: "Canggu",
     price_per_day:  300,
     rating: 5,
-    user: User.all.sample
+    user: vincent
   )
 
 
   file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657123/rentals/lady-having-cryotherapy_j1lrqr.jpg")
-  rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
-  rental.save!
+  cryochamber.photos.attach(io: file, filename: "#{cryochamber.title}.jpg", content_type: "image/jpg")
+  cryochamber.save!
 
 
 file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/rentals/download_tmo83r.jpg")
@@ -128,7 +136,7 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     title: "BotanicaArts Urban Zen Garden",
     description: "A fully-fledged garden with zen pebbles as part of your office. Suitable to wind down, hold meetings and impress partners.
   ",
-    address: "Brooklyn",
+    address: "New York",
     price_per_day:  30,
     rating: 4.7,
     user: User.all.sample
@@ -144,19 +152,19 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
 ############################## FOURTH ##########################################
 
 
-  rental = Rental.new(
+  vertical_garden = Rental.new(
     title: "Oxygenifying Vertical Garden",
     description: "Greenify your office with this vertical garden. It will help you to oxygenify your office and improve your productivity.",
-    address: "Brooklyn",
+    address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample
+    user: vincent
   )
 
 
   file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677658376/rentals/vertical_garden_f7qh6c.jpg")
-  rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
-  rental.save!
+  vertical_garden.photos.attach(io: file, filename: "#{vertical_garden.title}.jpg", content_type: "image/jpg")
+  vertical_garden.save!
 
 
 
@@ -168,7 +176,7 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     title: "Premium Swedish Sauna",
     description: "A premium swedish sauna made from highest quality Seqouia Redwood Timber. Comes with big Turkish man to spank you with birch branches.
   ",
-    address: "Brooklyn",
+    address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
     user: User.all.sample
@@ -190,7 +198,7 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     title: "Multi-Person Steambath",
     description: "Hold high-stakes meetings in this multi-person steambath. It will help you to relax and improve your productivity
   ",
-    address: "Brooklyn",
+    address: "New York",
     price_per_day:  30,
     rating: 5,
     user: User.all.sample
@@ -212,7 +220,7 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     title: "The TinyOffice",
     description: "Superman stayed in this tiny office. It will help you to relax and improve your productivity.
   ",
-    address: "Brooklyn",
+    address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
     user: User.all.sample
@@ -235,7 +243,7 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     title: "Luna Blu Office Waterfall",
     description: "It will help you to relax and improve your productivity.
   ",
-    address: "Brooklyn",
+    address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
     user: User.all.sample
@@ -257,13 +265,31 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677657118/r
     title: "Big Boss Wall",
       description: "Be a boss. Have a vertical garden. Mr. Executive. Yeah.
   ",
-    address: "Brooklyn",
+    address: "New York",
     price_per_day:  30,
     rating: 4.7,
     user: User.all.sample
   )
 
 
-  file = URI.open("PLACERHOLDER")
+  file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677729643/Office-interior-vertical-garden_1_trlivq.jpg")
   rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
   rental.save!
+
+
+
+  ############################## BOOKINGS ##########################################
+
+  puts "creating bookings"
+
+  booking = Booking.new(user: User.all.sample, rental: cryochamber, start_date: Date.today - 10, end_date: Date.today + 1, total_price: 1200, status: "accepted")
+  booking.save!
+
+  booking_2 = Booking.new(user: User.all.sample, rental: cryochamber, start_date: Date.today - 5, end_date: Date.today + 7, total_price: 2300, status: "accepted")
+  booking.save!
+
+  booking_3 = Booking.new(user: vincent, rental: vertical_garden, start_date: Date.today - 3, end_date: Date.today + 3, total_price: 800, status: "pending")
+  booking.save!
+
+
+  "3 bookings created"

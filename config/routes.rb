@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :rentals do
     resources :bookings, only: [:create]
   end
+
+  resources :bookings, only: [:show, :index]
+
+  get "about", to: "pages#about"
 end

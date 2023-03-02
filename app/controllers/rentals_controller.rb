@@ -3,7 +3,11 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: %i[show edit update destroy]
 
   def index
-    @rentals = Rental.all
+    if params[:query].present?
+      @rentals = Rental.search_by_title_and_description_and_address(params[:query])
+    else
+      @rentals = Rental.all
+    end
   end
 
   def show

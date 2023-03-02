@@ -4,15 +4,31 @@
        <%= cl_image_tag("Logo_1_qqahw9", width: 400) %>
     <% end %>
 
+
+    <div class="mx-auto">
+      <%= form_tag rentals_path, method: "get", class: "nav-link" do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search Rentals" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+
+
+          <li class="nav-item">
+            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Rent Out", new_rental_path, class: "nav-link" %>

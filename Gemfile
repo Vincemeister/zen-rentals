@@ -54,6 +54,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "devise"
 gem "cloudinary"
 gem "faker"
+gem "pg_search"
 
 
 group :development, :test do
