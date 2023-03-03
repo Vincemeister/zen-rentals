@@ -338,7 +338,7 @@ cryochamber.save!
 
   puts "creating bookings"
 
-  booking = Booking.new(user: User.first(5), rental: cryochamber, start_date: Date.today - 10, end_date: Date.today + 1, total_price: 1200, status: "Accepted")
+  booking = Booking.new(user: User.first(5).sample, rental: cryochamber, start_date: Date.today - 10, end_date: Date.today + 1, total_price: 1200, status: "Accepted")
   booking.save!
 
   booking_2 = Booking.new(user: User.first(5).sample, rental: ubud_garden, start_date: Date.today - 5, end_date: Date.today + 7, total_price: 2300, status: "Accepted")
