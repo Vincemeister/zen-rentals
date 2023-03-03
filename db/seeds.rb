@@ -26,8 +26,8 @@ end
 tom = User.new(
   first_name: "Tom",
   last_name: "Tommy",
-  email:   Faker::Internet.email,
-  password:  "123456"
+  email:   "tom@gmail.com",
+  password:  "password"
 )
 tom.save!
 puts "User #{tom.first_name} created!"
@@ -110,7 +110,7 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677654207/r
     address: "Canggu",
     price_per_day:  300,
     rating: 5,
-    user: User.first(10).sample,
+    user: vincent,
     headline: "Capability to (-230F). Full Submersion Cryotherapy creates a thermal shock without causing a drop in body temperature."
   )
 
@@ -334,18 +334,14 @@ cryochamber.save!
 
 
 
-  ############################## BOOKINGS ##########################################
+  ############################# BOOKINGS ##########################################
 
-  # puts "creating bookings"
+  puts "creating bookings"
 
-  # booking = Booking.new(user: tom, rental: ubud_garden, start_date: Date.today - 10, end_date: Date.today + 1, total_price: 1200, status: "Accepted")
-  # booking.save!
+  booking = Booking.new(user: User.first(5), rental: cryochamber, start_date: Date.today - 10, end_date: Date.today + 1, total_price: 1200, status: "Accepted")
+  booking.save!
 
-  # booking_2 = Booking.new(user: User.first(5).sample, rental: ubud_garden, start_date: Date.today - 5, end_date: Date.today + 7, total_price: 2300, status: "Accepted")
-  # booking.save!
+  booking_2 = Booking.new(user: User.first(5).sample, rental: ubud_garden, start_date: Date.today - 5, end_date: Date.today + 7, total_price: 2300, status: "Accepted")
+  booking.save!
 
-  # booking_3 = Booking.new(user: User.first(5).sample, rental: ubud_garden, start_date: Date.today - 3, end_date: Date.today + 3, total_price: 800, status: "Pending")
-  # booking.save!
-
-
-  # "3 bookings created"
+  "3 bookings created"
