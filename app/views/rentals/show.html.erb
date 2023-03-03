@@ -1,12 +1,5 @@
 
-<div class="container">
-  <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-    <span><strong>Yay!</strong> 🎉 you successfully listed your item!</span>
-    <a data-bs-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
-  </div>
-
+<div class="container pt-2">
   <div class="row">
       <div class="col-md-6">
         <% if @rental.photos.attached? %>
@@ -36,11 +29,31 @@
       <div class="rental-title border-bottom my-4">
         <h1><%= @rental.title %></h1>
       </div>
+      <div class="icon-bar border-bottom my-4 d-flex">
+        <div class="d-flex flex-column align-items-center">
+          <i class="fa-solid fa-bed"></i>
+          <p>Sleep-Enhancing</p>
+        </div>
+
+        <div class="d-flex mx-5 flex-column align-items-center">
+          <i class="fa-solid fa-brain"></i>
+          <p>Brain-Boosting</p>
+        </div>
+
+        <div class="d-flex flex-column align-items-center">
+          <i class="fa-solid fa-truck-fast"></i>
+          <p>Instant Delivery</p>
+        </div>
+
+      </div>
+
+
+
       <div class="rental-content border-bottom my-4">
         <p> <%= @rental.description %></p>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 mt-4">
       <div class="border p-4">
         <div class="row justify-content-between">
           <div class="col-6">

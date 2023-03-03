@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
        <%= cl_image_tag("Logo_1_qqahw9", width: 400) %>
@@ -23,15 +23,15 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link btn" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
 
 
           <li class="nav-item">
-            <%= link_to "Bookings", bookings_path, class: "nav-link btn" %>
+            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Rent Out", new_rental_path, class: "nav-link btn" %>
+            <%= link_to "Rent Out", new_rental_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -43,7 +43,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link btn" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

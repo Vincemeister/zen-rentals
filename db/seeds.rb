@@ -13,7 +13,7 @@ User.destroy_all
 Booking.destroy_all
 puts "Creating users..."
 
-10.times do
+9.times do
   user = User.new(
     first_name:    Faker::Name.first_name,
     last_name:     Faker::Name.last_name,
@@ -23,6 +23,15 @@ puts "Creating users..."
   user.save!
   puts "User #{user.first_name} created!"
 end
+tom = User.new(
+  first_name: "Tom",
+  last_name: "Tommy",
+  email:   Faker::Internet.email,
+  password:  "123456"
+)
+tom.save!
+puts "User #{tom.first_name} created!"
+
 puts ' 10 users created!'
 vincent = User.new(
   first_name: "Vincent",
@@ -47,7 +56,7 @@ rental = Rental.new(
 The countour of the EnergyPod takes pressure off the cardiac system with the elevation of the feet and relaxes the
 muscles of the lower back with a slight bend in the knees.
 Privacy Visor
-The EnergyPod’s sphere provides semi-privacy without overly enclosing. Rotate the privacy visor for additional seclusion.
+The EnergyPod’s sphere provides semi-privacy without overly enclosing. Rotate the privacy visor for additional seclusion.<br>
 
 Interface Console
 Set the timer to the desired duration, or use the one-touch start button for a perfect pre-programmed 20 minute power
@@ -63,7 +72,7 @@ built-in speaker or use optional headphones
   address: "Canggu",
   price_per_day:  30,
   rating: 4.7,
-  user: User.all.sample,
+  user: User.first(10).sample,
   headline: "Luxurious comfort, innovative technology and timeless design."
 )
 
@@ -101,7 +110,7 @@ file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677654207/r
     address: "Canggu",
     price_per_day:  300,
     rating: 5,
-    user: vincent,
+    user: User.first(10).sample,
     headline: "Capability to (-230F). Full Submersion Cryotherapy creates a thermal shock without causing a drop in body temperature."
   )
 
@@ -141,8 +150,8 @@ cryochamber.save!
     address: "New York",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample,
-    headline: "Fully-fledged ubran garden with zen pebbles."
+    user: User.first(10).sample,
+    headline: "Fully-fledged ubran garden with zen pebbles. Optional koi poind and water fountain."
   )
 
 
@@ -161,8 +170,8 @@ cryochamber.save!
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: vincent,
-    headline: "Nicaraguan Moss oxygenifying vertical garde"
+    user: User.first(10).sample,
+    headline: "Nicaraguan Moss oxygenifying vertical garden. Absorbs toxins and releases soothing pheromones."
   )
 
 
@@ -183,8 +192,8 @@ cryochamber.save!
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample,
-    headline: "Premium rosewood sauna with Diffuse 3.0 techbirch branches added."
+    user: User.first(10).sample,
+    headline: "Premium rosewood sauna with complementary birch branches. Uses EVAPO technology."
   )
 
 
@@ -206,8 +215,8 @@ cryochamber.save!
     address: "New York",
     price_per_day:  30,
     rating: 5,
-    user: User.all.sample,
-    headline: "Multi-person steambath with 3D sound system."
+    user: User.first(10).sample,
+    headline: "Multi-person steambath with 3D sound system. 30-minute boot time. Optional aromatherapy oils. "
   )
 
 
@@ -229,8 +238,8 @@ cryochamber.save!
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample,
-    headline: "Ultraegonomic insulated office pod for all weathers"
+    user: User.first(10).sample,
+    headline: "Ultraegonomic off-grid office pod for all weathers. May be places on roof-tops, gardens and even remote areas"
 
   )
 
@@ -253,8 +262,8 @@ cryochamber.save!
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample,
-    headline: "BluTech waterfall with SOOTH Light tech."
+    user: User.first(10).sample,
+    headline: "BluTech ionizing waterfall. Effective against traffic pollutants."
   )
 
 
@@ -269,19 +278,57 @@ cryochamber.save!
   ############################## NINTH ##########################################
 
 
-  rental = Rental.new(
+  ubud_garden = Rental.new(
     title: "The UBUDian Jungle Wall",
     description: "Be a boss. Have a vertical garden. Mr. Executive. Yeah.",
     address: "Canggu",
     price_per_day:  30,
     rating: 4.7,
-    user: User.all.sample,
-    headline: "30 tropical plants with aroma therapy"
+    user: vincent,
+    headline: "Botanical assemply of over 30 tropical plants and flowers."
 
   )
 
 
   file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677729643/Office-interior-vertical-garden_1_trlivq.jpg")
+  ubud_garden.photos.attach(io: file, filename: "#{ubud_garden.title}.jpg", content_type: "image/jpg")
+  ubud_garden.save!
+
+    ############################## TENTH ##########################################
+
+
+
+  rental = Rental.new(
+    title: "PodTime SleepPod",
+    description: "Functional sound-insulating sleep pod",
+    address: "Canggu",
+    price_per_day:  30,
+    rating: 4.7,
+    user: User.first(10).sample,
+    headline: "Functional sound-insulating sleep pod with temperature regulation tech"
+
+  )
+
+
+  file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677807132/podtime_h8ume6.jpg")
+  rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
+  rental.save!
+
+
+      ############################## ELEVENT ##########################################
+  rental = Rental.new(
+    title: "NIRVANA Float",
+    description: "Supereme float tank with saltwater",
+    address: "Canggu",
+    price_per_day:  30,
+    rating: 4.7,
+    user: User.first(10).sample,
+    headline: "Supereme float tank with saltwater and underwater sound technology"
+
+  )
+
+
+  file = URI.open("https://res.cloudinary.com/dncij7vr6/image/upload/v1677807130/float_tank_kuizfi.jpg")
   rental.photos.attach(io: file, filename: "#{rental.title}.jpg", content_type: "image/jpg")
   rental.save!
 
@@ -289,16 +336,16 @@ cryochamber.save!
 
   ############################## BOOKINGS ##########################################
 
-  puts "creating bookings"
+  # puts "creating bookings"
 
-  booking = Booking.new(user: User.all.sample, rental: cryochamber, start_date: Date.today - 10, end_date: Date.today + 1, total_price: 1200, status: "accepted")
-  booking.save!
+  # booking = Booking.new(user: tom, rental: ubud_garden, start_date: Date.today - 10, end_date: Date.today + 1, total_price: 1200, status: "Accepted")
+  # booking.save!
 
-  booking_2 = Booking.new(user: User.all.sample, rental: cryochamber, start_date: Date.today - 5, end_date: Date.today + 7, total_price: 2300, status: "accepted")
-  booking.save!
+  # booking_2 = Booking.new(user: User.first(5).sample, rental: ubud_garden, start_date: Date.today - 5, end_date: Date.today + 7, total_price: 2300, status: "Accepted")
+  # booking.save!
 
-  booking_3 = Booking.new(user: vincent, rental: vertical_garden, start_date: Date.today - 3, end_date: Date.today + 3, total_price: 800, status: "pending")
-  booking.save!
+  # booking_3 = Booking.new(user: User.first(5).sample, rental: ubud_garden, start_date: Date.today - 3, end_date: Date.today + 3, total_price: 800, status: "Pending")
+  # booking.save!
 
 
-  "3 bookings created"
+  # "3 bookings created"

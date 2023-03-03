@@ -7,9 +7,9 @@ class BookingsController < ApplicationController
     @booking.total_price = @rental.price_per_day * (@booking.end_date - @booking.start_date).to_i
     @booking.rental = @rental
     @booking.user = current_user
-    @booking.status = "pending"
+    @booking.status = "Pending"
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render "rentals/show"
     end
@@ -39,13 +39,13 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.status = "accepted"
+    @booking.status = "Accepted"
     @booking.save
     redirect_to booking_path(@booking)
   end
 
   def decline
-    @booking.status = "declined"
+    @booking.status = "Declined"
     @booking.save
     redirect_to booking_path(@booking)
   end

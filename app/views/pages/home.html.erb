@@ -8,7 +8,7 @@
     <%= link_to "Story", about_path, class: "btn btn-large btn-custom-transparent font-light" %>
   </div>
 </div>
-<h3 class="mt-6 mb-4" style="text-align: center; margin-top: 3rem;">Browse zen categories</h3>
+<h3 class="mt-5 mb-4" style="text-align: center">Browse zen categories</h3>
 
 <div class="container">
   <div class="row">
@@ -48,17 +48,17 @@
 </div>
 
 
-<h3 class="my-4" style="text-align: center;">Unique experiences</h1>
+<h3 class="mt-5" style="text-align: center;">Unique experiences</h3>
 <p style="text-align: center">Surprise employees or conference goers with mesmerizing, unique zen experiences enabled through state-of-the art technology</p>
 
 
-<div class="container my-4 p-4">
+<div class="container my-4">
   <div class="banner banner-unique-experiences my-7 d-flex align-items-center justify-content-center mx-auto" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path("teamlab_jzqhuw") %>);">
     <%= link_to "Enter a new vision of zen", rentals_path, class: "btn btn-large btn-custom-transparent-secondary" %>
   </div>
 </div>
 
-<h3 class="mt-6" style="text-align: center;">Discover zen equipment in <span style="color: #B91372;">Canggu</span></h1>
+<h3 class="mt-5" style="text-align: center;">Discover zen equipment in <span style="color: #B91372;">Canggu</span></h1>
 <div class="container">
   <div class="cards-container">
     <% @rentals.each do |rental| %>
@@ -69,7 +69,7 @@
         <% else %>
         <%= image_tag "https://res.cloudinary.com/dncij7vr6/image/upload/v1677666474/Rectangle_7_ivn4vk.jpg", class: "card-img-top" %>
       <% end %>
-        <div class="content-container p-3">
+        <div class="content-container mt-3 px-3">
           <h3>
             <%= rental.title %>
           </h3>
@@ -94,3 +94,4 @@
     <% end %>
   </div>
 </div>
+  
